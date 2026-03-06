@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StruXLIP – CVPR 2026</title>
+<title>StructXLIP – CVPR 2026</title>
 
-<link rel="icon" type="image/png" sizes="64x64" href="./image/logo.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./image/logo2.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -87,7 +87,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-brand">
-  <img src="./image/nav-logo.png" alt="StruXLIP logo" class="nav-logo">
+  <img src="./image/nav-logo.png" alt="StructXLIP logo" class="nav-logo">
   Stru<span>XLIP</span>
 </a>
   <div class="nav-links">
@@ -151,15 +151,15 @@
       <p class="abstract-text">
         Edge-based cues are fundamental to visual understanding. We extend this principle to vision-language alignment by explicitly modeling structural information across modalities, improving fine-tuning on long, detail-rich captions for cross-modal retrieval.
 
-We propose StruXLIP, a structure-centric fine-tuning paradigm that extracts edge maps as structural proxies and filters captions to emphasize structural content. Three auxiliary losses enforce global edge–text alignment, local region–phrase matching, and consistency between edge and RGB representations.
+We propose StructXLIP, a structure-centric fine-tuning paradigm that extracts edge maps as structural proxies and filters captions to emphasize structural content. Three auxiliary losses enforce global edge–text alignment, local region–phrase matching, and consistency between edge and RGB representations.
 
-StruXLIP consistently outperforms recent approaches across diverse retrieval benchmarks and serves as a plug-and-play enhancement for vision-language models.
+StructXLIP consistently outperforms recent approaches across diverse retrieval benchmarks and serves as a plug-and-play enhancement for vision-language models.
       </p>
     </div>
 
     <!-- RIGHT: image -->
     <div class="abstract-right">
-      <img src="./image/struxlip-teaser.png" alt="StruXLIP teaser figure">
+      <img src="./image/TeaserTeal10.png" alt="StructXLIP teaser figure">
     
     </div>
 
@@ -172,13 +172,13 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
   <div class="section-label">02 — Method</div>
   <h2>Two-Stage Fine-Tuning<br>with Structural Cues</h2>
 
-  <p>StruXLIP operates in two stages. First, it extracts complementary structural views edge maps for images via an edge detector, and structure-centric captions via lexicon filtering that removes appearance-related terms (colors, materials, textures). Second, it aligns these views at multiple granularities via three auxiliary losses added on top of the standard CLIP objective.</p>
+  <p>StructXLIP operates in two stages. First, it extracts complementary structural views edge maps for images via an edge detector, and structure-centric captions via lexicon filtering that removes appearance-related terms (colors, materials, textures). Second, it aligns these views at multiple granularities via three auxiliary losses added on top of the standard CLIP objective.</p>
 
   <!-- Figure 3: method diagram -->
   <div class="fig-container">
-    <img src="./image/struxlip-main.png" alt="StruXLIP method overview">
+    <img src="./image/method.png" alt="StructXLIP method overview">
     <div class="fig-caption">
-      <strong>Figure 1.</strong> Overview of StruXLIP fine-tuning. <em>(a) Structure-centric multimodal extraction:</em> edge maps are generated from original images via an edge detector; captions undergo lexicon filtering to remove appearance terms, producing structure-centric text T′. <em>(b) Structure-centric multimodal alignment:</em> three auxiliary losses enforce global structural alignment (ℒ<sub>I′,T′</sub>), local compositional alignment (ℒ<sup>local</sup><sub>I′,T′</sub>), and consistency regularization (ℒ<sub>I,I′</sub>). At inference, only the original image and caption are needed — no edge extraction or filtering required.
+      <strong>Figure 1.</strong> Overview of StructXLIP fine-tuning. <em>(a) Structure-centric multimodal extraction:</em> edge maps are generated from original images via an edge detector; captions undergo lexicon filtering to remove appearance terms, producing structure-centric text T′. <em>(b) Structure-centric multimodal alignment:</em> three auxiliary losses enforce global structural alignment (ℒ<sub>I′,T′</sub>), local compositional alignment (ℒ<sup>local</sup><sub>I′,T′</sub>), and consistency regularization (ℒ<sub>I,I′</sub>). At inference, only the original image and caption are needed — no edge extraction or filtering required.
     </div>
   </div>
 
@@ -225,7 +225,7 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
   <div class="section-label">03 — Results</div>
   <h2>State-of-the-Art<br>Cross-Modal Retrieval</h2>
 
-  <p>StruXLIP is evaluated on four benchmarks: <strong>SKETCHY</strong> (46k fashion images), <strong>INSECT</strong> (6k fine-grained biology), <strong>DOCCI</strong> (15k general scenes, avg. 136 words/caption), and <strong>DCI</strong> (7.8k dense captions, avg. 1000+ words).</p>
+  <p>StructXLIP is evaluated on four benchmarks: <strong>SKETCHY</strong> (46k fashion images), <strong>INSECT</strong> (6k fine-grained biology), <strong>DOCCI</strong> (15k general scenes, avg. 136 words/caption), and <strong>DCI</strong> (7.8k dense captions, avg. 1000+ words).</p>
 
   <div class="results-scroll">
     <table>
@@ -280,7 +280,7 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
           <td class="second">72.64</td><td class="second">89.89</td><td class="second">72.84</td><td class="best">90.50</td>
         </tr>
         <tr class="ours">
-          <td><strong>StruXLIP</strong> (Ours)</td>
+          <td><strong>StructXLIP</strong> (Ours)</td>
           <td class="best">69.86</td><td class="best">90.85</td><td class="best">68.22</td><td class="best">90.67</td>
           <td class="best">9.93</td><td class="best">26.60</td><td class="best">9.50</td><td class="best">26.60</td>
           <td class="best">83.04</td><td class="best">97.06</td><td class="best">81.59</td><td class="best">96.94</td>
@@ -316,10 +316,10 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
   </style>
    <!-- Figure 6: qualitative results -->
   <div class="fig-container">
-    <img src="./image/struxlip-retrieval.png" alt="Qualitative retrieval results">
+    <img src="./image/retrieval8.png" alt="Qualitative retrieval results">
     <div class="fig-caption">
-      <strong>Figure 2.</strong> (a) Qualitative retrieval results on DOCCI. StruXLIP retrieves structurally
-      consistent images with correct layouts. (b) GRAD-CAM attention maps: StruXLIP shows sharper,
+      <strong>Figure 2.</strong> (a) Qualitative retrieval results on DOCCI. StructXLIP retrieves structurally
+      consistent images with correct layouts. (b) GRAD-CAM attention maps: StructXLIP shows sharper,
       more localized attention on described objects (dress silhouette, tree branch on floor).
     </div>
   </div>
@@ -335,7 +335,7 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
     </li>
     <li>
       <span class="contrib-num">02</span>
-      <span>StruXLIP outperforms recent fine-tuning methods <strong>without architectural complexity</strong> or inference overhead.</span>
+      <span>StructXLIP outperforms recent fine-tuning methods <strong>without architectural complexity</strong> or inference overhead.</span>
     </li>
     <li>
       <span class="contrib-num">03</span>
@@ -362,8 +362,8 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
 
   <div class="citation-block">
     <button class="copy-btn" onclick="copyBib()">Copy</button>
-<pre id="bib-text">@inproceedings{ruan2026StruXLIP,
-  title     = {StruXLIP: Enhancing Vision-Language Models
+<pre id="bib-text">@inproceedings{ruan2026StructXLIP,
+  title     = {StructXLIP: Enhancing Vision-Language Models
                with Multimodal Structural Cues},
   author    = {Ruan, Zanxi and Kong, Qiuyu and Gao, Songqun
                and Wang, Yiming and Cristani, Marco},
@@ -377,7 +377,7 @@ StruXLIP consistently outperforms recent approaches across diverse retrieval ben
 </main>
 
 <footer>
-  <p>StruXLIP &nbsp;·&nbsp; CVPR 2026 &nbsp;·&nbsp; University of Verona &amp; collaborators</p>
+  <p>StructXLIP &nbsp;·&nbsp; CVPR 2026 &nbsp;·&nbsp; University of Verona &amp; collaborators</p>
 </footer>
 
 <!-- ── Floating Lab Button ── -->
